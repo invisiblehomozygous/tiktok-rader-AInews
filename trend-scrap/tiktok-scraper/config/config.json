@@ -1,0 +1,29 @@
+{
+  "customParams": {
+    "commentsPerPost": 0,
+    "excludePinnedPosts": false,
+    "maxFollowersPerProfile": 0,
+    "maxFollowingPerProfile": 0,
+    "maxProfilesPerQuery": 10,
+    "maxRepliesPerComment": 0,
+    "proxyCountryCode": "None",
+    "resultsPerPage": 20,
+    "scrapeRelatedVideos": false,
+    "searchDatePosted": "3",
+    "searchQueries": ["aieffect", "aifilter", "aiart", "aivideo", "aiphoto"],
+    "searchSection": "/video",
+    "searchSorting": "0",
+    "shouldDownloadAvatars": false,
+    "shouldDownloadCovers": true,
+    "shouldDownloadMusicCovers": false,
+    "shouldDownloadSlideshowImages": true,
+    "shouldDownloadVideos": true
+  },
+  "resultsPerKeyword": 15,
+  "filters": {
+    "minPlayCount": 10000,
+    "minDiggCount": 0,
+    "minShareCount": 0,
+    "languages": []
+  }
+}

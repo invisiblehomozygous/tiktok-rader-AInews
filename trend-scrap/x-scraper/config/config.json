@@ -1,0 +1,34 @@
+{
+  "customParams": {
+    "filter:blue_verified": false,
+    "filter:consumer_video": false,
+    "filter:has_engagement": true,
+    "filter:hashtags": false,
+    "filter:images": false,
+    "filter:links": false,
+    "filter:media": false,
+    "filter:mentions": false,
+    "filter:native_video": false,
+    "filter:nativeretweets": false,
+    "filter:news": false,
+    "filter:pro_video": false,
+    "filter:quote": false,
+    "filter:replies": false,
+    "filter:safe": false,
+    "filter:spaces": false,
+    "filter:twimg": false,
+    "filter:videos": false,
+    "filter:vine": false,
+    "include:nativeretweets": false,
+    "lang": "en",
+    "maxItems": 10,
+    "min_retweets": 200,
+    "queryType": "Top",
+    "searchTerms": ["chatgpt", "openai", "claude", "AI", "AI video", "opensource AI"],
+    "within_time": "1d"
+  },
+  "filters": {
+    "maxHoursAgo": 36,
+    "minViewCount": 500000
+  }
+}

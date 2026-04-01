@@ -1,0 +1,42 @@
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+.venv-win/
+venv/
+
+# Secrets
+.env
+*.env
+
+# Local temp and outputs
+.tmp/
+skill_runs/
+scripts/llm_raw_responses/
+scripts/debug_*.txt
+*.log
+*.pid
+
+# Node dependencies
+node_modules/
+trend-scrap/x-scraper/node_modules/
+
+# Scraped/downloaded data
+trend-scrap/tiktok-scraper/data/
+trend-scrap/tiktok-scraper/downloaded_videos/
+trend-scrap/x-scraper/data/raw/
+trend-scrap/x-scraper/data/*.json
+
+# Preserve nested repo metadata locally without uploading it
+trend-scrap/tiktok-scraper/.git.local-backup/
+
+# Generated media and binary artifacts
+*.mp4
+*.pyc

@@ -1,0 +1,81 @@
+"""
+LLM Client Factory
+
+Central place to configure and create LLM clients.
+Change one line here to switch between MiniMax, OpenRouter, etc.
+"""
+
+import os
+from pathlib import Path
+
+from llm_client import LLMClient, LLMConfigError
+from llm_minimax import MiniMaxClient
+from llm_openrouter import OpenRouterClient
+
+
+# Default configuration - change this to switch providers
+DEFAULT_PROVIDER = "minimax"  # Options: "minimax", "openrouter"
+
+
+def load_env_file() -> dict:
+    """Load environment variables from .env file."""
+    env_vars = {}
+    env_file = Path(__file__).parent / ".env"
+    
+    if env_file.exists():
+        with open(env_file, 'r') as f:
+            for line in f:
+                line = line.strip()
+                if line and not line.startswith('#') and '=' in line:
+                    key, value = line.split('=', 1)
+                    env_vars[key.strip()] = value.strip()
+    
+    return env_vars
+
+
+def create_llm_client(provider: str = None, api_key: str = None) -> LLMClient:
+    """
+    Factory function to create the appropriate LLM client.
+    
+    This is the single point of configuration for LLM provider selection.
+    Change DEFAULT_PROVIDER above to switch implementations globally.
+    
+    Args:
+        provider: Optional override ('minimax', 'openrouter')
+        api_key: Optional override (otherwise reads from env)
+        
+    Returns:
+        Configured LLMClient instance
+        
+    Raises:
+        LLMConfigError: If configuration is missing or invalid
+    """
+    provider = provider or DEFAULT_PROVIDER
+    env_vars = load_env_file()
+    
+    if provider == "minimax":
+        key = api_key or env_vars.get("ANTHROPIC_API_KEY") or os.environ.get("ANTHROPIC_API_KEY")
+        if not key:
+            raise LLMConfigError(
+                "MiniMax API key not found. Set ANTHROPIC_API_KEY in .env or environment."
+            )
+        return MiniMaxClient(key)
+    
+    elif provider == "openrouter":
+        key = api_key or env_vars.get("OPENROUTER_API_KEY") or os.environ.get("OPENROUTER_API_KEY")
+        if not key:
+            raise LLMConfigError(
+                "OpenRouter API key not found. Set OPENROUTER_API_KEY in .env or environment."
+            )
+        # You can override model via env var too
+        model = env_vars.get("OPENROUTER_MODEL") or os.environ.get("OPENROUTER_MODEL")
+        return OpenRouterClient(key, model=model)
+    
+    else:
+        raise LLMConfigError(f"Unknown LLM provider: {provider}. Use 'minimax' or 'openrouter'.")
+
+
+# Convenience function for common case
+def get_default_client() -> LLMClient:
+    """Get the default configured LLM client."""
+    return create_llm_client()

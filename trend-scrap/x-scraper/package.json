@@ -1,0 +1,16 @@
+{
+  "name": "x-scraper",
+  "version": "1.0.0",
+  "description": "X (Twitter) scraper with Apify API",
+  "main": "src/scraper.js",
+  "scripts": {
+    "start": "node src/scraper.js"
+  },
+  "keywords": ["x", "twitter", "scraper", "apify"],
+  "author": "Greatbay Studio",
+  "license": "MIT",
+  "dependencies": {
+    "apify-client": "^2.22.2",
+    "dotenv": "^17.3.1"
+  }
+}

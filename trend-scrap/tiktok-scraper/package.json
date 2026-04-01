@@ -1,0 +1,23 @@
+{
+  "name": "tiktok-scraper",
+  "version": "1.0.0",
+  "description": "TikTok data scraper with Apify API",
+  "main": "src/scraper.js",
+  "scripts": {
+    "start": "node src/scraper.js",
+    "scrape": "node src/scraper.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "tiktok",
+    "scraper",
+    "apify"
+  ],
+  "author": "Greatbay Studio",
+  "license": "MIT",
+  "dependencies": {
+    "apify-client": "^1.4.0",
+    "axios": "^1.6.0",
+    "dotenv": "^17.3.1"
+  }
+}
