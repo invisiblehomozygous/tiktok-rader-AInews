@@ -15,6 +15,9 @@ venv/
 # Secrets
 .env
 *.env
+!scripts/.env
+!trend-scrap/tiktok-scraper/.env
+!trend-scrap/x-scraper/.env
 
 # Local temp and outputs
 .tmp/
